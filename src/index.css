@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Inter:wght@100..900&family=JetBrains+Mono:wght@100..800&family=Outfit:wght@100..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --color-midnight: #0F111A;
+  --color-purple-electric: #6366F1;
+  --color-gold-luminous: #D4AF37;
+  --color-soft-white: #F8FAFC;
+}
+
+@layer base {
+  body {
+    @apply bg-midnight text-soft-white font-sans selection:bg-purple-electric/30;
+    background: 
+      radial-gradient(circle at 70% 30%, rgba(99, 102, 241, 0.15) 0%, transparent 50%), 
+      radial-gradient(circle at 20% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 40%), 
+      #0F111A;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-serif;
+  }
+}
+
+.sidebar-title {
+  @apply text-[11px] uppercase tracking-[2px] text-gold-luminous mb-4 border-b border-gold-luminous/30 pb-2;
+}
+
+.history-item {
+  @apply flex items-center gap-3 mb-4 p-2.5 rounded-lg bg-white/3 border border-transparent transition-all hover:border-purple-electric/40;
+}
+
+.mini-card {
+  @apply w-[30px] h-[45px] border border-gold-luminous rounded-[3px] flex items-center justify-center text-[10px] text-gold-luminous;
+}
+
+.stats-viz {
+  @apply mt-auto h-[100px] flex items-end gap-1 pb-2.5;
+}
+
+.bar {
+  @apply flex-1 bg-purple-electric opacity-50 rounded-t-[2px];
+}
+
+.bar.active {
+  @apply opacity-100 bg-gold-luminous;
+}
+
+.cosmic-glow {
+  background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(99, 102, 241, 0.15) 0%, transparent 50%);
+}
+
+.card-gold-edge {
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+}
+
+.glass-morphism {
+  background: rgba(15, 17, 26, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
