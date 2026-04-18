@@ -173,7 +173,7 @@ export default function DeepReading({ onReadingComplete }: { onReadingComplete: 
                       <RefreshCw className="w-12 h-12 text-gold-luminous animate-spin" />
                       <Sparkles className="absolute -top-2 -right-2 w-6 h-6 text-purple-electric animate-pulse" />
                     </div>
-                    <p className="text-gold-luminous/80 font-serif italic text-xl">세 카드의 얽힌 운명을 AI 마스터가 해석 중입니다...</p>
+                    <p className="text-gold-luminous/80 font-serif italic text-xl">세 카드의 얽힌 운명을 핸들 타로 마스터가 해석 중입니다...</p>
                     <div className="w-full max-w-sm h-1 bg-white/5 rounded-full overflow-hidden">
                       <motion.div
                         initial={{ width: 0 }}
