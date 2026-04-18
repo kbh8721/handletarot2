@@ -1,6 +1,16 @@
 import { GoogleGenAI } from '@google/genai';
 
-const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+let aiInstance: GoogleGenAI | null = null;
+
+function getAI() {
+  if (!aiInstance) {
+    // We use a fallback dummy key because in AI Studio, the actual request is intercepted
+    // and injected with the real key via a proxy. This prevents the SDK from crashing on startup
+    // if the key is not defined at build time.
+    aiInstance = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY || 'dummy_key_for_proxy' });
+  }
+  return aiInstance;
+}
 
 export async function interpretTarot(
   type: 'daily' | 'deep',
@@ -25,7 +35,8 @@ export async function interpretTarot(
        Use a sophisticated, cosmic, and mysterious yet professional tone. (Respond in Korean)`;
 
   try {
-    const response = await ai.models.generateContent({
+    const aiClient = getAI();
+    const response = await aiClient.models.generateContent({
       model: modelStr,
       contents: prompt,
       config: {
