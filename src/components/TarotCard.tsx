@@ -17,13 +17,17 @@ export default function TarotCard({ card, isReversed, flipped, onClick, classNam
       onClick={onClick}
     >
       <motion.div
-        className="w-full h-full relative preserve-3d"
+        className="w-full h-full relative"
         initial={false}
         animate={{ rotateY: flipped ? 180 : 0 }}
         transition={{ duration: 0.6, type: 'spring', damping: 20, stiffness: 100 }}
+        style={{ transformStyle: 'preserve-3d' }}
       >
         {/* Back of the card */}
-        <div className="absolute inset-0 backface-hidden rounded-xl overflow-hidden glass-morphism border-[3px] border-gold-luminous flex items-center justify-center p-4 shadow-[0_0_40px_rgba(99,102,241,0.3)]">
+        <div 
+          className="absolute inset-0 rounded-xl overflow-hidden glass-morphism border-[3px] border-gold-luminous flex items-center justify-center p-4 shadow-[0_0_40px_rgba(99,102,241,0.3)] z-10"
+          style={{ backfaceVisibility: 'hidden' }}
+        >
           <div className="w-full h-full rounded-lg border border-gold-luminous/20 relative overflow-hidden flex items-center justify-center bg-gradient-to-br from-[#1a1c2e] to-midnight">
             {/* Ornate Pattern */}
             <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--color-gold-luminous)_1px,_transparent_1px)] bg-[size:15px_15px]" />
@@ -32,7 +36,10 @@ export default function TarotCard({ card, isReversed, flipped, onClick, classNam
         </div>
 
         {/* Front of the card */}
-        <div className="absolute inset-0 backface-hidden rounded-xl overflow-hidden border-[3px] border-gold-luminous rotate-y-180 bg-gradient-to-br from-[#1a1c2e] to-midnight shadow-[0_0_40px_rgba(99,102,241,0.3)]">
+        <div 
+          className="absolute inset-0 rounded-xl overflow-hidden border-[3px] border-gold-luminous bg-gradient-to-br from-[#1a1c2e] to-midnight shadow-[0_0_40px_rgba(99,102,241,0.3)]"
+          style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)', zIndex: flipped ? 20 : 0 }}
+        >
           <div className={`w-full h-full flex flex-col items-center justify-between p-4 relative ${isReversed ? 'rotate-180' : ''}`}>
              <span className="z-10 text-[9px] uppercase tracking-[0.3em] text-gold-luminous/50">Major Arcana</span>
              <div className="flex-1 w-full my-4 border border-gold-luminous/10 relative overflow-hidden flex items-center justify-center bg-black/50">

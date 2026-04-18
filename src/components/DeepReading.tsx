@@ -73,7 +73,7 @@ export default function DeepReading({ onReadingComplete }: { onReadingComplete: 
             exit={{ opacity: 0, scale: 1.05 }}
             className="w-full max-w-2xl glass-morphism p-10 rounded-3xl border-gold-luminous/20"
           >
-            <h2 className="text-4xl text-gold-luminous text-center mb-8">AI Deep Reading Room</h2>
+            <h2 className="text-4xl text-gold-luminous text-center mb-8 font-serif">깊은 내면의 통찰</h2>
 
             <div className="grid grid-cols-3 gap-4 mb-10">
               {TOPICS.map((t) => (
