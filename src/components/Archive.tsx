@@ -48,12 +48,12 @@ export default function Archive({ readings, onClear, onSelectReading }: ArchiveP
                   {reading.cards.map((c, i) => (
                     <div
                       key={i}
-                      className="w-12 h-20 rounded-lg border border-gold-luminous/20 bg-midnight/80 overflow-hidden relative"
+                      className="w-12 h-20 rounded-lg border border-gold-luminous/20 bg-midnight/80 overflow-hidden relative shadow-md"
                     >
                        <img
                         src={c.card.image}
                         alt={c.card.name}
-                        className="w-full h-full object-cover opacity-50"
+                        className="w-full h-full object-cover"
                         referrerPolicy="no-referrer"
                       />
                     </div>

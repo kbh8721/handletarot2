@@ -35,14 +35,13 @@ export default function TarotCard({ card, isReversed, flipped, onClick, classNam
         <div className="absolute inset-0 backface-hidden rounded-xl overflow-hidden border-[3px] border-gold-luminous rotate-y-180 bg-gradient-to-br from-[#1a1c2e] to-midnight shadow-[0_0_40px_rgba(99,102,241,0.3)]">
           <div className={`w-full h-full flex flex-col items-center justify-between p-4 relative ${isReversed ? 'rotate-180' : ''}`}>
              <span className="z-10 text-[9px] uppercase tracking-[0.3em] text-gold-luminous/50">Major Arcana</span>
-             <div className="flex-1 w-full my-4 border border-gold-luminous/10 relative overflow-hidden flex items-center justify-center">
+             <div className="flex-1 w-full my-4 border border-gold-luminous/10 relative overflow-hidden flex items-center justify-center bg-black/50">
                 <img
                   src={card?.image || 'https://picsum.photos/seed/tarot/300/500'}
                   alt={card?.name}
-                  className="absolute inset-0 w-full h-full object-cover opacity-60"
-                  referrerPolicy="no-referrer"
+                  className="absolute inset-0 w-full h-full object-contain"
+                  style={{ mixBlendMode: 'normal', opacity: 1 }}
                 />
-                <div className="absolute inset-0 bg-radial-gradient from-purple-electric/20 to-transparent" />
              </div>
             <div className="z-10 pb-2">
               <h3 className="text-gold-luminous text-center font-serif text-xl leading-tight uppercase tracking-[0.2em]">{card?.name}</h3>
