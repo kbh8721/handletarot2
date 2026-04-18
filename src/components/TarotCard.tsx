@@ -41,7 +41,11 @@ export default function TarotCard({ card, isReversed, flipped, onClick, classNam
           style={{ backfaceVisibility: 'hidden', transform: 'rotateY(180deg)', zIndex: flipped ? 20 : 0 }}
         >
           <div className={`w-full h-full flex flex-col items-center justify-between p-4 relative ${isReversed ? 'rotate-180' : ''}`}>
-             <span className="z-10 text-[9px] uppercase tracking-[0.3em] text-gold-luminous/50">Major Arcana</span>
+             <span className="z-10 text-[9px] uppercase tracking-[0.3em] text-gold-luminous/50">
+               {card?.arcana === 'minor' ? (
+                 card.suit ? `${card.suit.charAt(0).toUpperCase() + card.suit.slice(1)} Suit` : 'Minor Arcana'
+               ) : 'Major Arcana'}
+             </span>
              <div className="flex-1 w-full my-4 border border-gold-luminous/10 relative overflow-hidden flex items-center justify-center bg-black/50">
                 <img
                   src={card?.image || 'https://picsum.photos/seed/tarot/300/500'}
